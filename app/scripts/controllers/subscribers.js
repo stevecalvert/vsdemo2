@@ -60,21 +60,36 @@ angular.module('vsdemo2App')
 
     //var fred = $.parseJSON(localData);
 
-    $(document).ready(function() {
-      $('#example').DataTable( {
-          //data : $firebaseArray(firebaseObj);
-          data : localData2,
-          columns: [
-            { title: "no" },
-            { title: "name" },
-            { title: "loyalty" },
-            { title: "joinDate" }
-        ]
-      } );
+        //   "columns" : [  
+        // { "data": "name" },
+        // { "data": "position" },
+        // { "data": "office" },
+        // { "data": "extn" },
+        // { "data": "start_date" },
+        // { "data": "salary" }
+        // ]
+
+//     $(document).ready(function() {
+//       $('#example').DataTable( {
+//           //data : $firebaseArray(firebaseObj);
+//           //data : localData,
+//           "ajax": function (data, callback, settings) {
+//            callback(
+//       JSON.parse( localData )
+//     )
+//   }
+// } )
+    $('#example').dataTable( {
+      "ajax": function (data, callback, settings) {
+        callback(
+          JSON.parse( localData )
+        );
+      }
     } );
 
 
-   //  $http.get('http://localhost:9000/subscribers.json').success(function(data){
+
+   //  $http.get('http://localh9000/subscribers.json').success(function(data){
    //    $('#example').DataTable( {
    //      "ajax": data
    //      } );
